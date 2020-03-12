@@ -6,7 +6,7 @@
 /*   By: lcouto <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/19 12:38:24 by lcouto            #+#    #+#             */
-/*   Updated: 2020/03/11 15:24:14 by lcouto           ###   ########.fr       */
+/*   Updated: 2020/03/12 18:31:01 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,7 @@ int		main(void)
 			&charcount);
 	charcount3 = printf("TESTE POINTER ADDRESS - O: %p, %p\n", &p, &charcount);
 	printf("RETURN ORIGINAL: %d, RETURN PIRATA: %d\n", charcount2, charcount3);
-	printf("TESTE PRECISION ORIGINAL: %.010s\n", "TesteTesteTeste");
-	ft_printf("1: %015d mais texto %d\n", 12, 16);
-	ft_printf("2: %-*d mais texto %i, %d, %i\n", 20, 13, 25, 32, 45);
-	return (0);
+	printf("TESTE PRECISION ORIGINAL: %-20.010s , %.10d\n", "TesteTesteTeste", 58);
+	ft_printf("TESTE FLAGS STRINGS: %-25s\n", "teste"); 
+		return (0);
 }
