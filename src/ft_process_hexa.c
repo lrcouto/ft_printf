@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_process_hexa.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lcouto <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 17:27:32 by lcouto            #+#    #+#             */
-/*   Updated: 2020/03/06 14:03:33 by lcouto           ###   ########.fr       */
+/*   Updated: 2020/03/17 13:58:42 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
-t_pf	*ft_process_hexa(const char *format, t_pf *val, char *arg)
+t_pf	*ft_process_hexa(const char *format, t_pf *val, int arg)
 {
 	char	*string;
 	int		i;
@@ -22,7 +22,7 @@ t_pf	*ft_process_hexa(const char *format, t_pf *val, char *arg)
 		return (0);
 	i = 0;
 	j = 0;
-	string = ft_itoa_base((int)arg, 16);
+	string = ft_itoa_base(arg, 16);
 	if ((int)arg < 0)
 		i++;
 	while (string[i])

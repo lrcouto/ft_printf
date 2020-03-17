@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_process_unsigned.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lcouto <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 15:34:01 by lcouto            #+#    #+#             */
-/*   Updated: 2020/03/06 13:58:41 by lcouto           ###   ########.fr       */
+/*   Updated: 2020/03/17 13:59:01 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
-t_pf	*ft_process_unsigned(const char *format, t_pf *val, char *arg)
+t_pf	*ft_process_unsigned(const char *format, t_pf *val, unsigned int arg)
 {
 	char	*string;
 	int		j;
@@ -20,7 +20,7 @@ t_pf	*ft_process_unsigned(const char *format, t_pf *val, char *arg)
 	j = 0;
 	if (!format)
 		return (0);
-	string = ft_itoa_u((unsigned int)arg);
+	string = ft_itoa_u(arg);
 	while (string[j])
 	{
 		ft_putchar_fd(string[j], 1);

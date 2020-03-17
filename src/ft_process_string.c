@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_process_string.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lcouto <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 12:59:04 by lcouto            #+#    #+#             */
-/*   Updated: 2020/03/12 18:31:04 by lcouto           ###   ########.fr       */
+/*   Updated: 2020/03/17 13:57:37 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,8 @@ static char	*ft_apply_flags(char *string, t_pf *val)
 	char	*padding;
 	char	*ret;
 	int		len;
-	int		i;
 
-	i = 0;
-	len = ft_strlen(string);	
+	len = ft_strlen(string);
 	if (len < val->precision && val->precision > 0)
 		newstr = ft_substr(string, 0, val->precision);
 	else
@@ -60,9 +58,9 @@ t_pf		*ft_process_string(const char *format, t_pf *val, char *arg)
 		output = ft_apply_flags(string, val);
 	else
 		output = ft_strdup(string);
-	while (string[j])
+	while (output[j])
 	{
-		ft_putchar_fd(string[j], 1);
+		ft_putchar_fd(output[j], 1);
 		j++;
 	}
 	free(string);

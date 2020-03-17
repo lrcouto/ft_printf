@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_process_int.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lcouto <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/03 14:58:20 by lcouto            #+#    #+#             */
-/*   Updated: 2020/03/11 14:51:33 by lcouto           ###   ########.fr       */
+/*   Updated: 2020/03/17 13:47:59 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
-t_pf	*ft_process_int(const char *format, t_pf *val, char *arg)
+t_pf	*ft_process_int(const char *format, t_pf *val, int arg)
 {
 	char	*string;
 	int		j;
