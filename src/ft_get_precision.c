@@ -6,13 +6,13 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/11 18:15:07 by lcouto            #+#    #+#             */
-/*   Updated: 2020/03/19 22:39:42 by lcouto           ###   ########.fr       */
+/*   Updated: 2020/04/27 20:23:45 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
-t_pf	*ft_get_precision(const char *format, t_pf *val)
+void	ft_get_precision(const char *format, t_pf *val)
 {
 	int		i;
 	char	*temp;
@@ -39,5 +39,4 @@ t_pf	*ft_get_precision(const char *format, t_pf *val)
 	}
 	ft_id_conversion(format, val);
 	free(temp);
-	return (val);
 }
