@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lcouto <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 13:14:27 by lcouto            #+#    #+#             */
-/*   Updated: 2020/03/11 18:59:21 by lcouto           ###   ########.fr       */
+/*   Updated: 2020/04/27 16:23:23 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int		ft_printf(const char *format, ...)
 		}
 		val.index++;
 	}
-	printf("ZERO %d DASH %d PRECISION %d WIDTH %d\n", val.zeroflag, val.dashflag, val.precision, val.width);
+	//printf("ZERO %d DASH %d PRECISION %d WIDTH %d\n", val.zeroflag, val.dashflag, val.precision, val.width);
 	va_end(val.args);
 	return (val.total);
 }

@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/19 12:38:24 by lcouto            #+#    #+#             */
-/*   Updated: 2020/03/17 14:16:08 by lcouto           ###   ########.fr       */
+/*   Updated: 2020/04/27 17:06:41 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int		main(void)
 	int 	p;
 
 	charcount = ft_printf("TESTE INT: %d, %i\n", 1234, -5678);
-	printf("%d\n", charcount);
+	printf("%i\n", charcount);
 	ft_printf("TESTE CHAR: %15d, %c, %c, %c, D\n", 97, 'A', 'B', 'C');
 	ft_printf("TESTE STRING: %s! %s Não é um arg.\n", "Um arg", "Outro arg!");
 	ft_printf("Tá 100%% essa porra? Não!\n");
@@ -33,7 +33,9 @@ int		main(void)
 			&charcount);
 	charcount3 = printf("TESTE POINTER ADDRESS - O: %p, %p\n", &p, &charcount);
 	printf("RETURN ORIGINAL: %d, RETURN PIRATA: %d\n", charcount2, charcount3);
-	printf("TESTE PRECISION ORIGINAL: %-20.010s , %.10d\n", "TesteTesteTeste", 58);
-	ft_printf("TESTE FLAGS STRINGS: %-25s\n", "teste");
-		return (0);
+	printf("TESTE PRECISION ORIGINAL: %-20.010s , %020d e mais\n", "TesteTesteTeste", -58);
+	ft_printf("TESTE FLAGS STRINGS: %*.3s, %25.*s, % e algo mais\n", 25, "teste", 3, "outro teste", "mais um teste");
+	ft_printf("TESTE FLAGS INT : %010d, %-10d, %*.3i e algo mais\n", -2500, -25, 10, -25);
+	ft_printf("TESTE FLAGS UNSIGNED : %010u, %-10u, %*.3u e algo mais\n", 2500, 25, 10, 25);
+	return (0);
 }

@@ -6,11 +6,12 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 12:59:04 by lcouto            #+#    #+#             */
-/*   Updated: 2020/03/17 13:57:37 by lcouto           ###   ########.fr       */
+/*   Updated: 2020/04/27 18:33:30 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
+#include <stdio.h>
 
 static char	*ft_apply_flags(char *string, t_pf *val)
 {
@@ -20,10 +21,13 @@ static char	*ft_apply_flags(char *string, t_pf *val)
 	int		len;
 
 	len = ft_strlen(string);
-	if (len < val->precision && val->precision > 0)
+	if (len > val->precision && val->precision > 0)
+	{
 		newstr = ft_substr(string, 0, val->precision);
+		val->precision = 0;
+	}
 	else
-		newstr = strdup(string);
+		newstr = ft_strdup(string);
 	len = ft_strlen(newstr);
 	ret = NULL;
 	if (len < val->width && val->width > 0)
@@ -33,11 +37,12 @@ static char	*ft_apply_flags(char *string, t_pf *val)
 		ft_memset(padding, ' ', (val->width - len));
 		if (val->dashflag == 1)
 		{
-			ret = ft_strjoin(newstr, padding);
+			ret = ft_strjoin(padding, newstr);
 			val->dashflag = 0;
 		}
 		else
-			ret = ft_strjoin(padding, newstr);
+			ret = ft_strjoin(newstr, padding);
+		val->width = 0;
 	}
 	return (ret);
 }
@@ -45,7 +50,7 @@ static char	*ft_apply_flags(char *string, t_pf *val)
 t_pf		*ft_process_string(const char *format, t_pf *val, char *arg)
 {
 	char	*output;
-	char 	*string;
+	char	*string;
 	int		j;
 
 	j = 0;

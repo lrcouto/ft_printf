@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_get_precision.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lcouto <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/11 18:15:07 by lcouto            #+#    #+#             */
-/*   Updated: 2020/03/12 13:36:21 by lcouto           ###   ########.fr       */
+/*   Updated: 2020/03/19 22:39:42 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,10 @@ t_pf	*ft_get_precision(const char *format, t_pf *val)
 		i++;
 	temp = ft_substr(format, val->index, i - val->index);
 	if (val->prcstar == 1)
+	{
 		val->precision = va_arg(val->args, int);
+		val->prcstar = 0;
+	}
 	else
 	{
 		val->precision = ft_atoi(temp);

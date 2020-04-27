@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_get_width.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lcouto <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 16:17:01 by lcouto            #+#    #+#             */
-/*   Updated: 2020/03/11 19:22:38 by lcouto           ###   ########.fr       */
+/*   Updated: 2020/03/19 22:39:45 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,10 @@ t_pf	*ft_get_width(const char *format, t_pf *val)
 		i++;
 	temp = ft_substr(format, val->index, i - val->index);
 	if (val->widstar == 1)
+	{
 		val->width = va_arg(val->args, int);
+		val->widstar = 0;
+	}
 	else
 	{
 		val->width = ft_atoi(temp);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_id_conversion.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lcouto <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/03 14:26:21 by lcouto            #+#    #+#             */
-/*   Updated: 2020/03/12 17:27:36 by lcouto           ###   ########.fr       */
+/*   Updated: 2020/04/27 15:55:28 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_pf	*ft_id_conversion(const char *format, t_pf *val)
 {
-	if (format[val->index] == '0' || format[val->index] == '-' || 
+	if (format[val->index] == '0' || format[val->index] == '-' ||
 	(format[val->index] >= '1' && format[val->index] <= '9') ||
 	format[val->index] == '*')
 		val = ft_check_flags(format, val);
