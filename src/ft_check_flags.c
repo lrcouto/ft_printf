@@ -3,35 +3,42 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_flags.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lcouto <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 16:53:29 by lcouto            #+#    #+#             */
-/*   Updated: 2020/03/12 14:31:03 by lcouto           ###   ########.fr       */
+/*   Updated: 2020/05/05 18:30:571 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
-t_pf	*ft_check_flags(const char *format, t_pf *val)
+void	ft_check_flags(const char *format, t_pf *val)
 {
-	if (format[val->index] == '0' && val->dashflag == 0 &&
-	format[val->index - 1] == '%')
+	if (format[val->index] == '0' && format[val->index - 1] == '%')
 	{
 		val->zeroflag = 1;
+		val->dashflag = 0;
 		val->index = val->index + 1;
-		return (ft_check_flags(format, val));
+		ft_check_flags(format, val);
 	}
-	if (format[val->index] == '-' && val->zeroflag == 0)
+	if (format[val->index] == '-')
 	{
 		val->dashflag = 1;
+		val->zeroflag = 0;
 		val->index = val->index + 1;
-		return (ft_check_flags(format, val));
+		ft_check_flags(format, val);
 	}
 	if ((format[val->index] >= '0' && format[val->index] <= '9') ||
 	format[val->index] == '*')
 	{
 		ft_get_width(format, val);
-		return (ft_check_flags(format, val));
+		ft_check_flags(format, val);
 	}
-	return (val);
+	if (format[val->index] == '.' && ((format[val->index + 1] >= '0'
+	&& format[val->index + 1] <= '9') || format[val->index + 1] == '*'))
+	{
+		val->index = val->index + 1;
+		ft_get_precision(format, val);
+	}
+	ft_id_conversion(format, val);
 }

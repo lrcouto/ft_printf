@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 16:17:01 by lcouto            #+#    #+#             */
-/*   Updated: 2020/04/27 19:19:26 by lcouto           ###   ########.fr       */
+/*   Updated: 2020/05/05 18:40:07 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,6 @@ void	ft_get_width(const char *format, t_pf *val)
 		i = i - val->index;
 		val->index = val->index + i;
 	}
-	ft_id_conversion(format, val);
 	free(temp);
+	ft_id_conversion(format, val);
 }

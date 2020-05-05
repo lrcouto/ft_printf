@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 15:34:01 by lcouto            #+#    #+#             */
-/*   Updated: 2020/04/27 18:20:46 by lcouto           ###   ########.fr       */
+/*   Updated: 2020/04/30 18:24:10 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ static char	*ft_apply_flags(char *string, t_pf *val)
 	char	*ret;
 	int		len;
 
-	val->precision = 0;
 	newstr = ft_strdup(string);
 	len = ft_strlen(newstr);
 	if (!(padding = (char*)malloc(sizeof(char) * (val->width - len))))
@@ -31,14 +30,9 @@ static char	*ft_apply_flags(char *string, t_pf *val)
 	}
 	else
 		ft_memset(padding, ' ', (val->width - len));
-	if (val->dashflag == 1)
-	{
-		ret = ft_strjoin(newstr, padding);
-		val->dashflag = 0;
-	}
-	else
-		ret = ft_strjoin(padding, newstr);
-	val->width = 0;
+	ret = (val->dashflag == 1 ? ft_strjoin(newstr, padding) :
+	ft_strjoin(padding, newstr));
+	val->dashflag = 0;
 	return (ret);
 }
 
@@ -54,7 +48,11 @@ t_pf *val, unsigned int arg)
 		return (0);
 	string = ft_itoa_u(arg);
 	if (val->width > 0 || val->precision > 0)
+	{
 		output = ft_apply_flags(string, val);
+		val->width = 0;
+		val->precision = 0;
+	}
 	else
 		output = ft_strdup(string);
 	while (output[j])
