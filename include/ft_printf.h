@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 13:16:52 by lcouto            #+#    #+#             */
-/*   Updated: 2020/04/27 20:23:40 by lcouto           ###   ########.fr       */
+/*   Updated: 2020/05/05 18:40:09 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ uintptr_t arg);
 
 t_pf			*ft_init_val(t_pf *val);
 
-t_pf			*ft_check_flags(const char *format, t_pf *val);
+void			ft_check_flags(const char *format, t_pf *val);
 
 void			ft_get_width(const char *format, t_pf *val);
 
