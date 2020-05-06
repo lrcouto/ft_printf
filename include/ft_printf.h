@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 13:16:52 by lcouto            #+#    #+#             */
-/*   Updated: 2020/05/05 18:40:09 by lcouto           ###   ########.fr       */
+/*   Updated: 2020/05/06 16:24:36 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct	s_pf
 	int		prcstar;
 	int		width;
 	int		precision;
+	int		activearg;
 	va_list	args;
 }				t_pf;
 
