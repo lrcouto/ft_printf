@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 13:16:52 by lcouto            #+#    #+#             */
-/*   Updated: 2020/05/07 18:20:47 by lcouto           ###   ########.fr       */
+/*   Updated: 2020/05/07 18:27:22 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,8 @@ t_pf			*ft_process_percent(const char *format, t_pf *val);
 
 t_pf			*ft_process_hexa(const char *format, t_pf *val, int arg);
 
-t_pf			*ft_process_unsigned(const char *format, t_pf *val, unsigned int arg);
+t_pf			*ft_process_unsigned(const char *format, t_pf *val,
+unsigned int arg);
 
 t_pf			*ft_process_ptraddress(const char *format, t_pf *val,
 uintptr_t arg);
