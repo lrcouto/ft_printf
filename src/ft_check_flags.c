@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 16:53:29 by lcouto            #+#    #+#             */
-/*   Updated: 2020/05/07 15:38:45 by lcouto           ###   ########.fr       */
+/*   Updated: 2020/05/07 17:59:30 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,7 @@ void	ft_check_flags(const char *format, t_pf *val)
 	}
 	if ((format[val->index] >= '0' && format[val->index] <= '9') ||
 	format[val->index] == '*')
-	{
 		ft_get_width(format, val);
-		ft_check_flags(format, val);
-	}
 	if (format[val->index] == '.' && ((format[val->index + 1] >= '0'
 	&& format[val->index + 1] <= '9') || format[val->index + 1] == '*'))
 	{
