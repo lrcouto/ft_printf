@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 13:14:27 by lcouto            #+#    #+#             */
-/*   Updated: 2020/04/28 18:49:38 by lcouto           ###   ########.fr       */
+/*   Updated: 2020/05/06 15:11:38 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int		ft_printf(const char *format, ...)
 		if (format[val.index] == '%')
 		{
 			val.index++;
+			val.activearg = 1;
 			ft_id_conversion(format, &val);
 		}
 		else

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_init_val.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lcouto <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 17:38:17 by lcouto            #+#    #+#             */
-/*   Updated: 2020/03/11 14:05:18 by lcouto           ###   ########.fr       */
+/*   Updated: 2020/05/06 15:11:59 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,6 @@ t_pf	*ft_init_val(t_pf *val)
 	val->prcstar = 0;
 	val->width = 0;
 	val->precision = 0;
+	val->activearg = 0;
 	return (val);
 }

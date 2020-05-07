@@ -31,11 +31,13 @@ void	ft_get_precision(const char *format, t_pf *val)
 	i = val->index;
 	while (format[i] >= '0' && format[i] <= '9')
 		i++;
-	temp = ( i == val->index ? ft_strdup("0") : ft_substr(format, val->index, i - val->index));
+	temp = ( i == val->index ? ft_strdup("0") :
+	ft_substr(format, val->index, i - val->index));
 	if (val->prcstar == 1)
 	{
 		val->precision = va_arg(val->args, int);
 		val->prcstar = 0;
+		val->index = val->index + 1;
 	}
 	else
 	{
@@ -43,6 +45,8 @@ void	ft_get_precision(const char *format, t_pf *val)
 		i = i - val->index;
 		val->index = val->index + i;
 	}
+	if (val->precision < 0)
+		val->precision = 0;
 	free(temp);
 	ft_id_conversion(format, val);
 }

@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/03 14:58:20 by lcouto            #+#    #+#             */
-/*   Updated: 2020/05/05 18:44:35 by lcouto           ###   ########.fr       */
+/*   Updated: 2020/05/07 15:38:36 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static char *ft_apply_precision(char *string, t_pf *val)
 
 	len = ft_strlen(string);
 	num = (string[0] == '-' ? (len - 1) : len);
-	if (val->width > 0 && val->precision > val->width)
+	if (val->precision > val->width)
 	{
 		if (string[0] == '-')
 			val->width = val->precision + 1;
