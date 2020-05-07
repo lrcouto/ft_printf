@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 13:16:52 by lcouto            #+#    #+#             */
-/*   Updated: 2020/05/06 16:24:36 by lcouto           ###   ########.fr       */
+/*   Updated: 2020/05/07 18:20:47 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ typedef struct	s_pf
 	int		width;
 	int		precision;
 	int		activearg;
+	char	*newstr;
+	char	*padding;
 	va_list	args;
 }				t_pf;
 
@@ -60,5 +62,7 @@ void			ft_check_flags(const char *format, t_pf *val);
 void			ft_get_width(const char *format, t_pf *val);
 
 void			ft_get_precision(const char *format, t_pf *val);
+
+int				ft_check_conversions(const char *format, t_pf *val);
 
 #endif

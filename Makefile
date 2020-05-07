@@ -6,7 +6,7 @@
 #    By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/18 12:58:56 by lcouto            #+#    #+#              #
-#    Updated: 2020/03/19 20:21:40 by lcouto           ###   ########.fr        #
+#    Updated: 2020/05/07 17:59:28 by lcouto           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ HEADER = include
 SOURCES = ft_printf.c ft_id_conversion.c ft_distribute.c ft_process_int.c \
 		  ft_process_char.c ft_process_string.c ft_process_percent.c ft_process_hexa.c \
 		  ft_process_unsigned.c ft_process_ptraddress.c ft_init_val.c ft_check_flags.c \
-		  ft_get_width.c ft_get_precision.c
+		  ft_get_width.c ft_get_precision.c ft_check_conversions.c
 
 SRC = $(addprefix $(DIR_SRC)/,$(SOURCES))
 
