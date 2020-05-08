@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 13:16:52 by lcouto            #+#    #+#             */
-/*   Updated: 2020/05/07 18:27:22 by lcouto           ###   ########.fr       */
+/*   Updated: 2020/05/08 18:34:15 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,7 @@ void			ft_get_width(const char *format, t_pf *val);
 void			ft_get_precision(const char *format, t_pf *val);
 
 int				ft_check_conversions(const char *format, t_pf *val);
+
+int				ft_conversion_exists(const char *format, t_pf *val);
 
 #endif

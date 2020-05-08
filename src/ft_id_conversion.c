@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/03 14:26:21 by lcouto            #+#    #+#             */
-/*   Updated: 2020/05/07 18:20:51 by lcouto           ###   ########.fr       */
+/*   Updated: 2020/05/08 18:44:02 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,9 @@ static void	ft_check_precision(const char *format, t_pf *val)
 
 t_pf		*ft_id_conversion(const char *format, t_pf *val)
 {
-	if (ft_seek_flags(format, val) == 1)
+	if (ft_conversion_exists(format, val) == 0)
+		return (val);
+	else if (ft_seek_flags(format, val) == 1)
 		ft_check_flags(format, val);
 	else if (format[val->index] == '.')
 		ft_check_precision(format, val);
