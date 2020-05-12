@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 15:18:34 by lcouto            #+#    #+#             */
-/*   Updated: 2020/05/12 17:08:29 by lcouto           ###   ########.fr       */
+/*   Updated: 2020/05/12 18:38:57 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ t_pf		*ft_process_percent(const char *format, t_pf *val)
 		ft_putchar_fd(output[j], 1);
 		j++;
 	}
+	free(output);
+	free(string);
 	val->total = val->total + j;
 	return (val);
 }
