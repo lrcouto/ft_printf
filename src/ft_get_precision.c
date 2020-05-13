@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/11 18:15:07 by lcouto            #+#    #+#             */
-/*   Updated: 2020/05/07 18:20:52 by lcouto           ###   ########.fr       */
+/*   Updated: 2020/05/13 18:28:02 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ static void	ft_get_arg(t_pf *val, char *temp, int i)
 		i = i - val->index;
 		val->index = val->index + i;
 	}
+	if (val->precision == 0)
+		val->emptyprc = 1;
 	if (val->precision < 0)
 		val->precision = 0;
 }

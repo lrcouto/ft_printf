@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/03 14:26:21 by lcouto            #+#    #+#             */
-/*   Updated: 2020/05/12 18:38:57 by lcouto           ###   ########.fr       */
+/*   Updated: 2020/05/13 18:21:49 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ static void	ft_check_precision(const char *format, t_pf *val)
 	{
 		val->index = val->index + 1;
 		val->precision = 0;
+		val->emptyprc = 1;
 		ft_id_conversion(format, val);
 	}
 }

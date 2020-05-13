@@ -6,9 +6,14 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 17:27:32 by lcouto            #+#    #+#             */
-/*   Updated: 2020/04/29 16:53:31 by lcouto           ###   ########.fr       */
+/*   Updated: 2020/05/13 18:29:00 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+** Lembrar que o Hexa do printf é UNSIGNED,
+** tem que mudar o tipo quando for mexer.
+*/
 
 #include "../include/ft_printf.h"
 

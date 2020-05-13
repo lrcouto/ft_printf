@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 15:18:34 by lcouto            #+#    #+#             */
-/*   Updated: 2020/05/12 18:38:57 by lcouto           ###   ########.fr       */
+/*   Updated: 2020/05/13 18:20:08 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ static char	*ft_apply_flags(char *string, t_pf *val)
 	ft_strjoin(val->padding, val->newstr));
 	val->dashflag = 0;
 	val->zeroflag = 0;
+	val->width = 0;
+	val->precision = 0;
 	return (ret);
 }
 
@@ -49,11 +51,7 @@ t_pf		*ft_process_percent(const char *format, t_pf *val)
 		return (0);
 	string = ft_memset(string, '%', sizeof(char));
 	if (val->width > 0 || val->precision > 0)
-	{
 		output = ft_apply_flags(string, val);
-		val->width = 0;
-		val->precision = 0;
-	}
 	else
 		output = ft_strdup(string);
 	while (output[j])
