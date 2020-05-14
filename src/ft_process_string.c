@@ -6,12 +6,27 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 12:59:04 by lcouto            #+#    #+#             */
-/*   Updated: 2020/05/13 18:29:00 by lcouto           ###   ########.fr       */
+/*   Updated: 2020/05/14 17:28:36 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 #include <stdio.h>
+
+static char	*ft_apply_padding(t_pf *val, int len)
+{
+	char	*ret;
+
+	if (!(val->padding = ft_calloc((val->width - len), sizeof(char) + 1)))
+		return (0);
+	if (val->zeroflag == 1)
+		ft_memset(val->padding, '0', (val->width - len));
+	else
+		ft_memset(val->padding, ' ', (val->width - len));
+	ret = (val->dashflag == 1 ? ft_strjoin(val->newstr, val->padding) :
+		ft_strjoin(val->padding, val->newstr));
+	return (ret);
+}
 
 static char	*ft_apply_flags(char *string, t_pf *val)
 {
@@ -29,18 +44,8 @@ static char	*ft_apply_flags(char *string, t_pf *val)
 	else
 		val->newstr = ft_strdup(string);
 	len = ft_strlen(val->newstr);
-	ret = NULL;
 	if (len < val->width && val->width > 0)
-	{
-		if (!(val->padding = ft_calloc((val->width - len), sizeof(char) + 1)))
-			return (0);
-		if (val->zeroflag == 1)
-			ft_memset(val->padding, '0', (val->width - len));
-		else
-			ft_memset(val->padding, ' ', (val->width - len));
-		ret = (val->dashflag == 1 ? ft_strjoin(val->newstr, val->padding) :
-		ft_strjoin(val->padding, val->newstr));
-	}
+		ret = ft_apply_padding(val, len);
 	else
 		ret = ft_strdup(val->newstr);
 	val->dashflag = 0;

@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/11 18:15:07 by lcouto            #+#    #+#             */
-/*   Updated: 2020/05/13 18:28:02 by lcouto           ###   ########.fr       */
+/*   Updated: 2020/05/14 17:28:36 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ void		ft_get_precision(const char *format, t_pf *val)
 	temp = (i == val->index ? ft_strdup("0") :
 	ft_substr(format, val->index, i - val->index));
 	ft_get_arg(val, temp, i);
+	if (val->precision > 0)
+		val->emptyprc = 0;
 	free(temp);
 	ft_id_conversion(format, val);
 }

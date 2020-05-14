@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/03 14:58:20 by lcouto            #+#    #+#             */
-/*   Updated: 2020/05/07 18:20:45 by lcouto           ###   ########.fr       */
+/*   Updated: 2020/05/14 17:28:36 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static char	*ft_apply_flags(char *string, t_pf *val)
 	val->newstr = (val->precision > 0 ? ft_apply_precision(string, val)
 	: ft_strdup(string));
 	len = ft_strlen(val->newstr);
-	if (!(val->padding = (char*)malloc(sizeof(char) * (val->width - len))))
+	if (!(val->padding = ft_calloc((val->width - len), sizeof(char))))
 		return (0);
 	if (val->zeroflag == 1 && val->width != len)
 	{
