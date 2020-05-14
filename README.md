@@ -11,3 +11,5 @@ May 7th 2020 - Trying to handle exception when the program finds a '%' with no c
 May 12th 2020 - Int and Percent tests work. Char is segfaulting and I don't know why.
 
 May 13th 2020 - Char and Percent tests work. Need to fix hexa conversions from int to unsigned int.
+
+May 14th 2020 - Char, String, Int, Percent and Unsigned conversions work with flags AFAIK. Having trouble with testers.
