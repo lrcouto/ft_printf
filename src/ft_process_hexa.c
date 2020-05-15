@@ -6,37 +6,86 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 17:27:32 by lcouto            #+#    #+#             */
-/*   Updated: 2020/05/15 14:27:09 by lcouto           ###   ########.fr       */
+/*   Updated: 2020/05/15 15:13:50 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-** Lembrar que o Hexa do printf é UNSIGNED,
-** tem que mudar o tipo quando for mexer.
-*/
-
 #include "../include/ft_printf.h"
 
-t_pf	*ft_process_hexa(const char *format, t_pf *val, int arg)
+static char	*ft_apply_precision(char *string, t_pf *val)
+{
+	int		len;
+	int		num;
+
+	len = ft_strlen(string);
+	num = (string[0] == '-' ? (len - 1) : len);
+	if (val->precision > val->width)
+		val->width = val->precision;
+	val->padding = ft_calloc((val->precision - num), sizeof(char) + 1);
+	if (num >= val->precision)
+		val->newstr = ft_strdup(string);
+	else
+	{
+		ft_memset(val->padding, '0', (val->precision - num));
+		val->newstr = ft_strjoin(val->padding, string);
+	}
+	val->zeroflag = 0;
+	free(val->padding);
+	return (val->newstr);
+}
+
+static char	*ft_apply_flags(char *string, t_pf *val)
+{
+	char	*ret;
+	int		len;
+
+	val->newstr = (val->precision > 0 ? ft_apply_precision(string, val)
+	: ft_strdup(string));
+	len = ft_strlen(val->newstr);
+	if (val->width > len)
+	{
+		if (!(val->padding = ft_calloc((val->width - len), sizeof(char))))
+			return (0);
+		if (val->zeroflag == 1 && val->width != len)
+		{
+			ft_memset(val->padding, '0', (val->width - len));
+			val->zeroflag = 0;
+		}
+		else
+			ft_memset(val->padding, ' ', (val->width - len));
+		ret = (val->dashflag == 1 ? ft_strjoin(val->newstr, val->padding) :
+		ft_strjoin(val->padding, val->newstr));
+	}
+	else
+		ret = ft_strdup(val->newstr);
+	val->dashflag = 0;
+	return (ret);
+}
+
+t_pf	*ft_process_hexa(const char *format, t_pf *val, unsigned int arg)
 {
 	char	*string;
-	int		i;
+	char	*output;
 	int		j;
 
 	if (!format)
 		return (0);
-	i = 0;
 	j = 0;
-	string = ft_itoa_base(arg, 16);
-	if ((int)arg < 0)
-		i++;
-	while (string[i])
+	string = ft_itoa_base_u(arg, 16);
+	if (val->width > 0 || val->precision > 0)
 	{
-		if (format[val->index] == 'X' && string[j] >= 'a' && string[j] <= 'f')
-			string[i] -= 32;
-		ft_putchar_fd(string[i], 1);
+		output = ft_apply_flags(string, val);
+		val->width = 0;
+		val->precision = 0;
+	}
+	else
+		output = ft_strdup(string);
+	while (output[j])
+	{
+		if (format[val->index] == 'X' && output[j] >= 'a' && output[j] <= 'f')
+			output[j] -= 32;
+		ft_putchar_fd(output[j], 1);
 		j++;
-		i++;
 	}
 	val->total = val->total + j;
 	return (val);

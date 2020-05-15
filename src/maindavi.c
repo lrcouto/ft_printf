@@ -855,5 +855,263 @@ int main(void)
 	letras = ft_printf(string78u, 5, 777);
 	printf("\nTESTE 7R:00777:\nQuantidade de letras retorna: %d\nQuantidade de letras correta: 15\n\n", letras);
 
-	return (0);
+
+	ft_printf(">>>>>>>>>>>>>>>>>>>>>>>>>>>>TESTE PRINT HEXADECIAML 'x'<<<<<<<<<<<<<<<<<<<<<<<<\n\n");
+
+	letras = ft_printf("TESTE 01:%x:", 1250);
+	printf("\nTESTE R0:4e2:");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: 13\n\n", letras);
+
+	letras = ft_printf("TESTE 02:%4x:", 1985);
+	printf("\nTESTE R0: 7c1:");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: 14\n\n", letras);
+
+	letras = ft_printf("TESTE 03:%5x:", 10985);
+	printf("\nTESTE R0: 2ae9:");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: 15\n\n", letras);
+
+	letras = ft_printf("TESTE 04:%10x:", 52895);
+	printf("\nTESTE R0:      ce9f:");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: 20\n\n", letras);
+
+	letras = ft_printf("TESTE 05:%-5x:", 68521);
+	printf("\nTESTE R0:10ba9:");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: 15\n\n", letras);
+
+	letras = ft_printf("TESTE 06:%-6x:", 85221);
+	printf("\nTESTE R0:14ce5 :");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: 16\n\n", letras);
+
+	letras = ft_printf("TESTE 07:%-7x:", 98247);
+	printf("\nTESTE R0:17fc7  :");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: 17\n\n", letras);
+
+	letras = ft_printf("TESTE 07:%x:", 10);
+	printf("\nTESTE R0:a:");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: 11\n\n", letras);
+
+	letras = ft_printf("TESTE 08:%x:", 11);
+	printf("\nTESTE R0:b:");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: 11\n\n", letras);
+
+	letras = ft_printf("TESTE 09:%2x:", 12);
+	printf("\nTESTE R0: c:");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: 12\n\n", letras);
+
+	letras = ft_printf("TESTE 10:%-3x:", 13);
+	printf("\nTESTE R0:d  :");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: 13\n\n", letras);
+
+	letras = ft_printf("TESTE 10:%-4x:", 14);
+	printf("\nTESTE R0:e   :");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: 14\n\n", letras);
+
+	letras = ft_printf("TESTE 11:%5x:", 15);
+	printf("\nTESTE R0:    f:");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: 15\n\n", letras);
+
+	letras = ft_printf("TESTE 12:%10x:", -1);
+	printf("\nTESTE R0:  ffffffff:");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: 20\n\n", letras);
+
+	letras = ft_printf("TESTE 13:%-10x:", -5);
+	printf("\nTESTE R0:fffffffb  :");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: 20\n\n", letras);
+
+	letras = ft_printf("TESTE 14:%3x:", 4294967296);
+	printf("\nTESTE R0:  0:");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: 13\n\n", letras);
+
+	letras = ft_printf("TESTE 15:%-3x:", 4294967301);
+	printf("\nTESTE R0:5  :");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: 13\n\n", letras);
+
+	letras = ft_printf("TESTE 16:%.3x:", 4294967296);
+	printf("\nTESTE R0:000:");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: 13\n\n", letras);
+
+	letras = ft_printf("TESTE 17:%.3x:", 4294967301);
+	printf("\nTESTE R0:005:");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: 13\n\n", letras);
+
+	letras = ft_printf("TESTE 18:%15.10x:", 25441516);
+	printf("\nTESTE R0:     00018434ec:");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: 25\n\n", letras);
+
+	letras = ft_printf("TESTE 19:%-15.10x:", 58716133);
+	printf("\nTESTE R0:00037fefe5     :");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: 25\n\n", letras);
+
+
+	ft_printf(">>>>>>>>>>>>>>>>>>>>>>>>>>>>TESTE PRINT HEXADECIAML 'X'<<<<<<<<<<<<<<<<<<<<<<<<\n\n");
+
+
+	letras = ft_printf("TESTE 01:%X:", 1250);
+	printf("\nTESTE R0:4E2:");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: 13\n\n", letras);
+
+	letras = ft_printf("TESTE 02:%4X:", 1985);
+	printf("\nTESTE R0: 7C1:");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: 14\n\n", letras);
+
+	letras = ft_printf("TESTE 03:%5X:", 10985);
+	printf("\nTESTE R0: 2AE9:");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: 15\n\n", letras);
+
+	letras = ft_printf("TESTE 04:%10X:", 52895);
+	printf("\nTESTE R0:      CE9F:");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: 20\n\n", letras);
+
+	letras = ft_printf("TESTE 05:%-5X:", 68521);
+	printf("\nTESTE R0:10BA9:");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: 15\n\n", letras);
+
+	letras = ft_printf("TESTE 06:%-6X:", 85221);
+	printf("\nTESTE R0:14CE5 :");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: 16\n\n", letras);
+
+	letras = ft_printf("TESTE 07:%-7X:", 98247);
+	printf("\nTESTE R0:17FC7  :");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: 17\n\n", letras);
+
+	letras = ft_printf("TESTE 07:%X:", 10);
+	printf("\nTESTE R0:A:");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: 11\n\n", letras);
+
+	letras = ft_printf("TESTE 08:%X:", 11);
+	printf("\nTESTE R0:B:");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: 11\n\n", letras);
+
+	letras = ft_printf("TESTE 09:%2X:", 12);
+	printf("\nTESTE R0: C:");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: 12\n\n", letras);
+
+	letras = ft_printf("TESTE 10:%-3X:", 13);
+	printf("\nTESTE R0:D  :");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: 13\n\n", letras);
+
+	letras = ft_printf("TESTE 10:%-4X:", 14);
+	printf("\nTESTE R0:E   :");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: 14\n\n", letras);
+
+	letras = ft_printf("TESTE 11:%5X:", 15);
+	printf("\nTESTE R0:    F:");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: 15\n\n", letras);
+
+	letras = ft_printf("TESTE 12:%10X:", -1);
+	printf("\nTESTE R0:  FFFFFFFF:");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: 20\n\n", letras);
+
+	letras = ft_printf("TESTE 13:%-10X:", -5);
+	printf("\nTESTE R0:FFFFFFFB  :");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: 20\n\n", letras);
+
+	letras = ft_printf("TESTE 14:%3X:", 4294967296);
+	printf("\nTESTE R0:  0:");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: 13\n\n", letras);
+
+	letras = ft_printf("TESTE 15:%-3X:", 4294967301);
+	printf("\nTESTE R0:5  :");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: 13\n\n", letras);
+
+	letras = ft_printf("TESTE 16:%.3X:", 4294967296);
+	printf("\nTESTE R0:000:");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: 13\n\n", letras);
+
+	letras = ft_printf("TESTE 17:%.3X:", 4294967301);
+	printf("\nTESTE R0:005:");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: 13\n\n", letras);
+
+	letras = ft_printf("TESTE 18:%15.10X:", 25441516);
+	printf("\nTESTE R0:     00018434EC:");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: 25\n\n", letras);
+
+	letras = ft_printf("TESTE 19:%-15.10X:", 58716133);
+	printf("\nTESTE R0:00037FEFE5     :");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: 25\n\n", letras);
+
+
+	ft_printf(">>>>>>>>>>>>>>>>>>>>>>>>>>>>TESTE PRINT 'p'<<<<<<<<<<<<<<<<<<<<<<<<\n\n");
+
+	letras = ft_printf("TESTE 01:%p:", 1250);
+	printf("\nTESTE R0:0x4e2:");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: 15\n\n", letras);
+
+	letras = ft_printf("TESTE 02:%4p:", 1985);
+	printf("\nTESTE R0:0x7c1:");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: 15\n\n", letras);
+
+	letras = ft_printf("TESTE 03:%5p:", 10985);
+	printf("\nTESTE R0:0x2ae9:");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: 16\n\n", letras);
+
+	letras = ft_printf("TESTE 04:%10p:", 52895);
+	printf("\nTESTE R0:    0xce9f:");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: 20\n\n", letras);
+
+	letras = ft_printf("TESTE 05:%-5p:", 68521);
+	printf("\nTESTE R0:0x10ba9:");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: 17\n\n", letras);
+
+	letras = ft_printf("TESTE 06:%-6p:", 85221);
+	printf("\nTESTE R0:0x14ce5:");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: 17\n\n", letras);
+
+	letras = ft_printf("TESTE 07:%-7p:", 98247);
+	printf("\nTESTE R0:0x17fc7:");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: 17\n\n", letras);
+
+	letras = ft_printf("TESTE 07:%p:", 10);
+	printf("\nTESTE R0:0xa:");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: 13\n\n", letras);
+
+	letras = ft_printf("TESTE 08:%p:", 11);
+	printf("\nTESTE R0:0xb:");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: 13\n\n", letras);
+
+	letras = ft_printf("TESTE 09:%2p:", 12);
+	printf("\nTESTE R0:0xc:");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: 13\n\n", letras);
+
+	letras = ft_printf("TESTE 10:%-3p:", 13);
+	printf("\nTESTE R0:0xd:");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: 13\n\n", letras);
+
+	letras = ft_printf("TESTE 10:%-4p:", 14);
+	printf("\nTESTE R0:0xe :");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: 14\n\n", letras);
+
+	letras = ft_printf("TESTE 11:%5p:", 15);
+	printf("\nTESTE R0:  0xf:");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: 15\n\n", letras);
+
+	letras = ft_printf("TESTE 12:%10p:", -1);
+	printf("\nTESTE R0:0xffffffff:");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: 20\n\n", letras);
+
+	letras = ft_printf("TESTE 13:%-10p:", -5);
+	printf("\nTESTE R0:0xfffffffb:");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: 20\n\n", letras);
+
+	letras = ft_printf("TESTE 14:%3p:", 4294967296);
+	printf("\nTESTE R0:0x100000000:");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: 21\n\n", letras);
+
+	letras = ft_printf("TESTE 15:%-3p:", 4294967301);
+	printf("\nTESTE R0:0x100000005:");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: 21\n\n", letras);
+
+	letras = ft_printf("TESTE 16:%.3p:", 4294967296);
+	printf("\nTESTE R0:0x100000000:");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: 21\n\n", letras);
+
+	letras = ft_printf("TESTE 17:%.3p:", 4294967301);
+	printf("\nTESTE R0:0x100000005:");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: 21\n\n", letras);
+
+	letras = ft_printf("TESTE 18:%15.10x:", 25441516);
+	printf("\nTESTE R0:     00x18434ec:");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: 25\n\n", letras);
+
+	return 0;
 }

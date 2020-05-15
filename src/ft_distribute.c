@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/03 14:46:12 by lcouto            #+#    #+#             */
-/*   Updated: 2020/05/12 18:38:57 by lcouto           ###   ########.fr       */
+/*   Updated: 2020/05/15 15:13:19 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_pf	*ft_distribute(const char *format, t_pf *val)
 	else if (format[val->index] == 's')
 		val = ft_process_string(format, val, va_arg(val->args, char*));
 	else if (format[val->index] == 'x' || format[val->index] == 'X')
-		val = ft_process_hexa(format, val, va_arg(val->args, int));
+		val = ft_process_hexa(format, val, va_arg(val->args, unsigned int));
 	else if (format[val->index] == 'u')
 		val = ft_process_unsigned(format, val, va_arg(val->args, unsigned int));
 	else if (format[val->index] == 'p')
