@@ -1084,6 +1084,22 @@ Test 436 (p_ftfc_5w_throwswarning) : FAILED.
       expected (nonprintable as hex) : "  0x0"
       actual   (nonprintable as hex) : "   0x"
 
+Test 442 (p_width_32) : FAILED.
+    First line of code: {return test("%32p%32p%32p%32p%32p%32p%32p%32p%32p%32p%32p%32p",&a01,&a02,&a03,&a04,&a05,&a06,&a07,&a08,&a09,&a10,&a11,&a12);      expected return value : 455
+      your return value     : 457
+      expected output : "                     0x1098e51b8                     0x1098e51b9                     0x1098e51ba                     0x1098e51bc                     0"
+      your output     : "                     †0x1098e51b8                     0x1098e51b9                     0x1098e51ba                     0x1098e51bc                    "
+      expected (nonprintable as hex) : "                     0x1098e51b8                     0x1098e51b9                     0x1098e51ba                     0x1098e51bc                     0"
+      actual   (nonprintable as hex) : "                     \x86\x010x1098e51b8                     0x1098e51b9                     0x1098e51ba                     0x1098e51bc                    "
+
+Test 447 (p_width_32_lj) : FAILED.
+    First line of code: {return test("%-32p%-32p%-32p%-32p%-32p%-32p%-32p%-32p%-32p%-32p%-32p%-32p",&a01,&a02,&a03,&a04,&a05,&a06,&a07,&a08,&a09,&a10      expected return value : 455
+      your return value     : 457
+      expected output : "0x1098e51b8                     0x1098e51b9                     0x1098e51ba                     0x1098e51bc                     0x1098e51c0           "
+      your output     : "0x1098e51b8                     †0x1098e51b9                     0x1098e51ba                     0x1098e51bc                     0x1098e51c0         "
+      expected (nonprintable as hex) : "0x1098e51b8                     0x1098e51b9                     0x1098e51ba                     0x1098e51bc                     0x1098e51c0           "
+      actual   (nonprintable as hex) : "0x1098e51b8                     \x86\x010x1098e51b9                     0x1098e51ba                     0x1098e51bc                     0x1098e51c0         "
+
 Test 500 (nocrash_nullarg_1) : FAILED.
     (nocrash test: automatically passes provided no unexpected failure)
     First line of code: {return test("%1$s", NULL); }
