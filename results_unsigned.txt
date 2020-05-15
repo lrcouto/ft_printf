@@ -1,0 +1,217 @@
+Test 839 (u_prec_width_fit_fit_zero) : FAILED.
+    First line of code: {return test("%8.5u", 0);}
+      expected output : "   00000"
+      your output     : "   000000"
+      expected (nonprintable as hex) : "   00000"
+      actual   (nonprintable as hex) : "   000000"
+
+Test 844 (u_prec_width_fit_fit_zero_lj) : FAILED.
+    First line of code: {return test("%-8.5u", 0);}
+      expected output : "00000   "
+      your output     : "00000   0"
+      expected (nonprintable as hex) : "00000   "
+      actual   (nonprintable as hex) : "00000   0"
+
+Test 849 (u_prec_width_ff_zero_zp) : FAILED.
+    First line of code: {return test("%08.5u", 0);}
+      expected output : "   00000"
+      your output     : "   000000"
+      expected (nonprintable as hex) : "   00000"
+      actual   (nonprintable as hex) : "   000000"
+
+Test 854 (u_prec_width_ff_zero_ljzp_ignoreflag) : FAILED.
+    First line of code: {return test("%0-8.5u", 0);}
+      expected output : "00000   "
+      your output     : "00000   0"
+      expected (nonprintable as hex) : "00000   "
+      actual   (nonprintable as hex) : "00000   0"
+
+Test 858 (u_size_hh_pos_casted) : FAILED.
+    First line of code: {return test("%hhu", (unsigned char)45);}
+      expected output : "45"
+      your output     : "hu"
+      expected (nonprintable as hex) : "45"
+      actual   (nonprintable as hex) : "hu"
+
+Test 859 (u_size_h_pos_casted) : FAILED.
+    First line of code: {return test("%hu", (unsigned short)385);}
+      expected output : "385"
+      your output     : "u"
+      expected (nonprintable as hex) : "385"
+      actual   (nonprintable as hex) : "u"
+
+Test 860 (u_size_l_pos_casted) : FAILED.
+    First line of code: {return test("%lu", (unsigned long)32);}
+      expected output : "32"
+      your output     : "u"
+      expected (nonprintable as hex) : "32"
+      actual   (nonprintable as hex) : "u"
+
+Test 861 (u_size_ll_pos_casted) : FAILED.
+    First line of code: {return test("%llu", (unsigned long long)43);}
+      expected output : "43"
+      your output     : "lu"
+      expected (nonprintable as hex) : "43"
+      actual   (nonprintable as hex) : "lu"
+
+Test 862 (u_size_hh_pos_ref) : FAILED.
+    First line of code: {return test("%hhu", uch_pos_1);}
+      expected output : "100"
+      your output     : "hu"
+      expected (nonprintable as hex) : "100"
+      actual   (nonprintable as hex) : "hu"
+
+Test 863 (u_size_h_pos_ref) : FAILED.
+    First line of code: {return test("%hu", ush_pos_1);}
+      expected output : "3047"
+      your output     : "u"
+      expected (nonprintable as hex) : "3047"
+      actual   (nonprintable as hex) : "u"
+
+Test 864 (u_size_l_pos_ref) : FAILED.
+    First line of code: {return test("%lu", ul_pos_1);}
+      expected output : "22337203685477"
+      your output     : "u"
+      expected (nonprintable as hex) : "22337203685477"
+      actual   (nonprintable as hex) : "u"
+
+Test 865 (u_size_ll_pos_ref) : FAILED.
+    First line of code: {return test("%llu", ull_pos_1);}
+      expected output : "22337203685477"
+      your output     : "lu"
+      expected (nonprintable as hex) : "22337203685477"
+      actual   (nonprintable as hex) : "lu"
+
+Test 866 (u_size_l_pos_big) : FAILED.
+    First line of code: {return test("%lu", 22337203685477ul);}
+      expected output : "22337203685477"
+      your output     : "u"
+      expected (nonprintable as hex) : "22337203685477"
+      actual   (nonprintable as hex) : "u"
+
+Test 867 (u_size_ll_pos_big) : FAILED.
+    First line of code: {return test("%llu", 522337203685470ull);}
+      expected output : "522337203685470"
+      your output     : "lu"
+      expected (nonprintable as hex) : "522337203685470"
+      actual   (nonprintable as hex) : "lu"
+
+Test 868 (u_ullmax) : FAILED.
+    First line of code: {return test("%llu", ullmax);}
+      expected output : "9223372036854775807"
+      your output     : "lu"
+      expected (nonprintable as hex) : "9223372036854775807"
+      actual   (nonprintable as hex) : "lu"
+
+Test 869 (u_ulmax) : FAILED.
+    First line of code: {return test("%lu", ulmax);}
+      expected output : "9223372036854775807"
+      your output     : "u"
+      expected (nonprintable as hex) : "9223372036854775807"
+      actual   (nonprintable as hex) : "u"
+
+Test 870 (u_uhmax) : FAILED.
+    First line of code: {return test("%hu", (unsigned short)65535);}
+      expected output : "65535"
+      your output     : "u"
+      expected (nonprintable as hex) : "65535"
+      actual   (nonprintable as hex) : "u"
+
+Test 871 (u_uhhmax) : FAILED.
+    First line of code: {return test("%hhu", (unsigned char)255);}
+      expected output : "255"
+      your output     : "hu"
+      expected (nonprintable as hex) : "255"
+      actual   (nonprintable as hex) : "hu"
+
+Test 872 (u_size_l_pos_big_zp) : FAILED.
+    First line of code: {return test("%037lu", 22337203685477ul);}
+      expected output : "0000000000000000000000022337203685477"
+      your output     : "37lu"
+      expected (nonprintable as hex) : "0000000000000000000000022337203685477"
+      actual   (nonprintable as hex) : "37lu"
+
+Test 873 (u_size_ll_pos_big_width) : FAILED.
+    First line of code: {return test("%37llu", 522337203685470ull);}
+      expected output : "                      522337203685470"
+      your output     : "7llu"
+      expected (nonprintable as hex) : "                      522337203685470"
+      actual   (nonprintable as hex) : "7llu"
+
+Test 874 (u_size_ll_hh_ll) : FAILED.
+    First line of code: {return test("%llu%hhu%llu", ull_pos_1, uch_pos_1, ull_pos_1);}
+      expected output : "2233720368547710022337203685477"
+      your output     : "luhulu"
+      expected (nonprintable as hex) : "2233720368547710022337203685477"
+      actual   (nonprintable as hex) : "luhulu"
+
+Test 875 (u_size_h_l_hh) : FAILED.
+    First line of code: {return test("%hu%lu%hhu", ush_pos_1, ul_pos_1, uch_pos_1);}
+      expected output : "304722337203685477100"
+      your output     : "uuhu"
+      expected (nonprintable as hex) : "304722337203685477100"
+      actual   (nonprintable as hex) : "uuhu"
+
+Test 876 (u_size_l_hh_h) : FAILED.
+    First line of code: {return test("%lu%hhu%hu", ul_pos_1, uch_pos_1, ush_pos_1);}
+      expected output : "223372036854771003047"
+      your output     : "uhuu"
+      expected (nonprintable as hex) : "223372036854771003047"
+      actual   (nonprintable as hex) : "uhuu"
+
+Test 877 (u_size_n_ll_hh) : FAILED.
+    First line of code: {return test("%u%llu%hhu", ui_pos_1, ull_pos_1, uch_pos_1);}
+      expected output : "87802322337203685477100"
+      your output     : "878023luhu"
+      expected (nonprintable as hex) : "87802322337203685477100"
+      actual   (nonprintable as hex) : "878023luhu"
+
+Test 878 (u_size_ll_n_l) : FAILED.
+    First line of code: {return test("%llu%u%lu", ull_pos_1, ui_pos_1, ul_pos_1);}
+      expected output : "2233720368547787802322337203685477"
+      your output     : "lu3373746277u"
+      expected (nonprintable as hex) : "2233720368547787802322337203685477"
+      actual   (nonprintable as hex) : "lu3373746277u"
+
+Test 879 (u_prec0val0_basic) : FAILED.
+    First line of code: {return test("%.0u", 0);}
+      expected output : ""
+      your output     : "0"
+      expected (nonprintable as hex) : ""
+      actual   (nonprintable as hex) : "0"
+
+Test 880 (u_prec0val0_implicit) : FAILED.
+    First line of code: {return test("%.u", 0);}
+      expected output : ""
+      your output     : "0"
+      expected (nonprintable as hex) : ""
+      actual   (nonprintable as hex) : "0"
+
+Test 881 (u_prec0val0_w) : FAILED.
+    First line of code: {return test("%5.0u", 0);}
+      expected output : "     "
+      your output     : "    0"
+      expected (nonprintable as hex) : "     "
+      actual   (nonprintable as hex) : "    0"
+
+Test 882 (u_prec0val0_w_impl) : FAILED.
+    First line of code: {return test("%5.u", 0);}
+      expected output : "     "
+      your output     : "    0"
+      expected (nonprintable as hex) : "     "
+      actual   (nonprintable as hex) : "    0"
+
+Test 883 (u_prec0val0_wlj) : FAILED.
+    First line of code: {return test("%-5.0u", 0);}
+      expected output : "     "
+      your output     : "0    "
+      expected (nonprintable as hex) : "     "
+      actual   (nonprintable as hex) : "0    "
+
+Test 884 (u_prec0val0_wlj_impl) : FAILED.
+    First line of code: {return test("%-5.u", 0);}
+      expected output : "     "
+      your output     : "0    "
+      expected (nonprintable as hex) : "     "
+      actual   (nonprintable as hex) : "0    "
+

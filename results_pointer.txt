@@ -1,0 +1,26 @@
+Test 1284 (p_null) : FAILED.
+    First line of code: {return test("%p", NULL);}
+      expected output : "0x0"
+      your output     : "0x"
+      expected (nonprintable as hex) : "0x0"
+      actual   (nonprintable as hex) : "0x"
+
+Test 1289 (p_ftfc_5w_throwswarning) : FAILED.
+    First line of code: {return test("%5p", 0);}
+      expected output : "  0x0"
+      your output     : "   0x"
+      expected (nonprintable as hex) : "  0x0"
+      actual   (nonprintable as hex) : "   0x"
+
+Test 1295 (p_width_32) : FAILED.
+    First line of code: {return test("%32p%32p%32p%32p%32p%32p%32p%32p%32p%32p%32p%32p",&a01,&a02,&a03,&a04,&a05,&a06,&a07,&a08,&a09,&a10,&a11,&a12);      expected output : "                     0x108349b59                     0x108349b5a                     0x108349b5c                     0x108349b5e                     0"
+      your output     : "                     0x108349b59                     0x108349b5a                     0x108349b5c                     0x108349b5e                     "
+      expected (nonprintable as hex) : "                     0x108349b59                     0x108349b5a                     0x108349b5c                     0x108349b5e                     0"
+      actual   (nonprintable as hex) : "                     0x108349b59                     0x108349b5a                     0x108349b5c                     \x7f0x108349b5e                     "
+
+Test 1300 (p_width_32_lj) : FAILED.
+    First line of code: {return test("%-32p%-32p%-32p%-32p%-32p%-32p%-32p%-32p%-32p%-32p%-32p%-32p",&a01,&a02,&a03,&a04,&a05,&a06,&a07,&a08,&a09,&a10      expected output : "0x108349b59                     0x108349b5a                     0x108349b5c                     0x108349b5e                     0x108349b60           "
+      your output     : "0x108349b59                     0x108349b5a                     0x108349b5c                     0x108349b5e                     0x108349b60           "
+      expected (nonprintable as hex) : "0x108349b59                     0x108349b5a                     0x108349b5c                     0x108349b5e                     0x108349b60           "
+      actual   (nonprintable as hex) : "0x108349b59                     0x108349b5a                     0x108349b5c                     0x108349b5e                     0x108349b60           "
+

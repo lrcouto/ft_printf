@@ -1,0 +1,164 @@
+Test  21 (s_full_then_empty_string) : FAILED.
+    First line of code: {return test("this %s is %s", "hello", "");}
+      expected output : "this hello is "
+      your output     : "this hello is hello"
+      expected (nonprintable as hex) : "this hello is "
+      actual   (nonprintable as hex) : "this hello is hello"
+
+Test  44 (s_two_s_prec_width_1fit_b_0trunc) : FAILED.
+    First line of code: {return test("%7.7s%3.7s", "hello", "world");}
+    SIGABRT
+
+Test  48 (s_two_s_prec_width_1fit_b_1trunc_a) : FAILED.
+    First line of code: {return test("%7.3s%3.7s", "hello", "world");}
+    SIGABRT
+
+Test  52 (s_two_s_prec_width_1fit_b_1trunc_b) : FAILED.
+    First line of code: {return test("%7.7s%3.3s", "hello", "world");}
+    SIGABRT
+
+Test  56 (s_two_s_prec_width_1fit_b_2trunc) : FAILED.
+    First line of code: {return test("%7.3s%3.3s", "hello", "world");}
+    SIGABRT
+
+Test  59 (s_two_strings_lj_and_rj) : FAILED.
+    First line of code: {return test("%-7s%5s", "hello", "world");}
+    SIGABRT
+
+Test  60 (s_two_strings_rj_and_lj) : FAILED.
+    First line of code: {return test("%7s%-5s", "hello", "world");}
+    SIGABRT
+
+Test  61 (s_null_basic_string_expansion) : FAILED.
+    First line of code: {return test("hello, %s.", NULL);}
+    SEGFAULT
+
+Test  62 (s_null_only_string_expansion) : FAILED.
+    First line of code: {return test("%s", NULL);}
+    SEGFAULT
+
+Test  63 (s_null_space_padded_field_width) : FAILED.
+    First line of code: {return test("%32s", NULL);}
+    SEGFAULT
+
+Test  64 (s_null_space_padded_over_field_width) : FAILED.
+    First line of code: {return test("%2s", NULL);}
+    SEGFAULT
+
+Test  65 (s_null_space_padded_field_width_lj) : FAILED.
+    First line of code: {return test("%-32s", NULL);}
+    SEGFAULT
+
+Test  66 (s_null_space_padded_field_width2_lj) : FAILED.
+    First line of code: {return test("%-16s", NULL);}
+    SEGFAULT
+
+Test  67 (s_null_space_padded_over_field_width_lj) : FAILED.
+    First line of code: {return test("%-3s", NULL);}
+    SEGFAULT
+
+Test  79 (s_prec_03_no_width_s_null) : FAILED.
+    First line of code: {return test("%.03s", NULL);}
+    SEGFAULT
+
+Test  80 (s_prec_09_no_width_s_null) : FAILED.
+    First line of code: {return test("%.09s", NULL);}
+    SEGFAULT
+
+Test  82 (s_prec_01_no_width_s_nullchar) : FAILED.
+    First line of code: {return test("%.01s", "
+      expected output : ""
+      your output     : "0"
+      expected (nonprintable as hex) : ""
+      actual   (nonprintable as hex) : "0"
+
+Test  83 (s_prec_03_no_width_s_nullchar) : FAILED.
+    First line of code: {return test("%.03s", "
+      expected output : ""
+      your output     : "03"
+      expected (nonprintable as hex) : ""
+      actual   (nonprintable as hex) : "03"
+
+Test  84 (s_prec_09_no_width_s_nullchar) : FAILED.
+    First line of code: {return test("%.09s", "
+      expected output : ""
+      your output     : "09"
+      expected (nonprintable as hex) : ""
+      actual   (nonprintable as hex) : "09"
+
+Test  87 (s_prec_0_width_3_s_null) : FAILED.
+    First line of code: {return test("%3.s", NULL);}
+    SEGFAULT
+
+Test  88 (s_prec_0_width_10_s_null) : FAILED.
+    First line of code: {return test("%10.s", NULL);}
+    SEGFAULT
+
+Test  94 (s_prec_0_lj_width_3_s_null) : FAILED.
+    First line of code: {return test("%-3.s", NULL);}
+    SEGFAULT
+
+Test  95 (s_prec_0_lj_width_8_s_null) : FAILED.
+    First line of code: {return test("%-8.s", NULL);}
+    SEGFAULT
+
+Test 101 (s_prec_1_width_3_s_null) : FAILED.
+    First line of code: {return test("%3.1s", NULL);}
+    SEGFAULT
+
+Test 102 (s_prec_1_width_9_s_null) : FAILED.
+    First line of code: {return test("%9.1s", NULL);}
+    SEGFAULT
+
+Test 105 (s_prec_1_lj_width_3_s_null) : FAILED.
+    First line of code: {return test("%-3.1s", NULL);}
+    SEGFAULT
+
+Test 106 (s_prec_1_lj_width_9_s_null) : FAILED.
+    First line of code: {return test("%-9.1s", NULL);}
+    SEGFAULT
+
+Test 107 (s_prec_1_lj_width_3_s_nullchar) : FAILED.
+    First line of code: {return test("%-3.1s", "
+      expected output : "   "
+      your output     : "1  "
+      expected (nonprintable as hex) : "   "
+      actual   (nonprintable as hex) : "1  "
+
+Test 108 (s_prec_1_lj_width_6_s_nullchar) : FAILED.
+    First line of code: {return test("%-6.1s", "
+      expected output : "      "
+      your output     : "1     "
+      expected (nonprintable as hex) : "      "
+      actual   (nonprintable as hex) : "1     "
+
+Test 111 (s_prec_perfect_width_3_s_null) : FAILED.
+    First line of code: {return test("%3.6s", NULL);}
+    SEGFAULT
+
+Test 112 (s_prec_perfect_width_20_s_null) : FAILED.
+    First line of code: {return test("%20.6s", NULL);}
+    SEGFAULT
+
+Test 113 (s_prec_perfect_width_3_s_nullchar) : FAILED.
+    First line of code: {return test("%3.6s", "
+      expected output : "   "
+      your output     : "  6"
+      expected (nonprintable as hex) : "   "
+      actual   (nonprintable as hex) : "  6"
+
+Test 114 (s_prec_perfect_width_6_s_nullchar) : FAILED.
+    First line of code: {return test("%6.6s", "
+      expected output : "      "
+      your output     : "     6"
+      expected (nonprintable as hex) : "      "
+      actual   (nonprintable as hex) : "     6"
+
+Test 119 (s_prec_8_lj_width_3_s_null) : FAILED.
+    First line of code: {return test("%-3.8s", NULL);}
+    SEGFAULT
+
+Test 120 (s_prec_8_lj_width_10_s_null) : FAILED.
+    First line of code: {return test("%-10.8s", NULL);}
+    SEGFAULT
+
