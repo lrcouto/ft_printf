@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 12:59:04 by lcouto            #+#    #+#             */
-/*   Updated: 2020/05/19 15:12:09 by lcouto           ###   ########.fr       */
+/*   Updated: 2020/05/19 15:53:22 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ static char	*ft_apply_padding(t_pf *val, int len)
 		ft_memset(val->padding, ' ', (val->width - len));
 	ret = (val->dashflag == 1 ? ft_strjoin(val->newstr, val->padding) :
 		ft_strjoin(val->padding, val->newstr));
+	free(val->padding);
 	return (ret);
 }
 
@@ -52,7 +53,6 @@ static char	*ft_apply_flags(char *string, t_pf *val)
 	val->zeroflag = 0;
 	val->width = 0;
 	val->precision = 0;
-	free(val->padding);
 	free(val->newstr);
 	return (ret);
 }
