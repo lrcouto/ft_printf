@@ -20,6 +20,8 @@ int		main(void)
 	int 	charcount2;
 	int 	charcount3;
 	int 	p;
+	int		letras;
+	int		letrasref;
 
 	charcount = ft_printf("TESTE INT: %d, %i\n", 1234, -5678);
 	printf("%i\n", charcount);
@@ -41,6 +43,23 @@ int		main(void)
 	ft_printf("TESTE FLAGS INT PIRATA: %010d, %-0-0-0-10d, %10.5i e algo mais\n", -2500, -25, -2500);
 	printf("TESTE FLAGS UNSIGNED ORIGINAL: %010u, %-10u, %*.3u e algo mais\n", 2500, 25, 10, 25);
 	ft_printf("TESTE FLAGS UNSIGNED PIRATA: %010///u, %-10u, %*.3u e algo mais\n", 2500, 25, 10, 25);
-	ft_printf("%kasa\n");
+	ft_printf("\n\n");
+	printf("      ##### TESTES DO PFT #####     \n\n\n");
+
+	letras = ft_printf("TESTE P21: this %s is %s:", "hello", "");
+	printf("\n");
+	letrasref = printf("TESTE O21: this hello is :");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: %d\n\n", letras, letrasref);
+
+	letras = ft_printf("TESTE P44: %7.7s%3.7s:", "hello", "world");
+	printf("\n");
+	letrasref = printf("TESTE O44: NÃO SEI, DEU SIGABORT:");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: %d\n\n", letras, letrasref);
+
+	letras = ft_printf("TESTE P48: %7.3s%3.7s:", "hello", "world");
+	printf("\n");
+	letrasref = printf("TESTE O48: NÃO SEI, DEU SIGABORT:");
+	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: %d\n\n", letras, letrasref);
+
 	return (0);
 }
