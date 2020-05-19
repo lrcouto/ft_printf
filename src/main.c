@@ -61,10 +61,12 @@ int		main(void)
 	letrasref = printf("TESTE O48: NÃO SEI, DEU SIGABORT MAS AGORA DEU CERTO:");
 	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: %d\n\n", letras, letrasref);
 
-	letras = ft_printf("TESTE P61: hello, %s," "\0");
+	letras = ft_printf("TESTE P61: hello, %s", NULL);
 	printf("\n");
 	letrasref = printf("TESTE O61: NÃO SEI, DEU SEGFAULT:");
 	printf("\nQuantidade de letras retorna: %d\nQuantidade de letras correta: %d\n\n", letras, letrasref);
+
+	printf("hello, %p\n", NULL);
 
 	return (0);
 }
