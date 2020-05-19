@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 12:59:04 by lcouto            #+#    #+#             */
-/*   Updated: 2020/05/19 17:31:02 by lcouto           ###   ########.fr       */
+/*   Updated: 2020/05/19 17:57:58 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,20 @@ t_pf		*ft_process_string(const char *format, t_pf *val, char *arg)
 	j = 0;
 	if (!format)
 		return (0);
-	if ((!arg) || (ft_strncmp(arg, "", sizeof(char)) == 0))
+	if (!arg)
+	{
+		if (!(string = ft_calloc(ft_strlen("(null)"), (sizeof(char) + 1))))
+			return (0);
+		ft_memcpy(string, "(null)", ft_strlen("(null)"));
+	}
+	else if (ft_strncmp(arg, "", sizeof(char)) == 0)
 		return (val);
-	if (!(string = ft_calloc(ft_strlen(arg), (sizeof(char) + 1))))
-		return (0);
-	ft_memcpy(string, arg, ft_strlen(arg));
+	else
+	{
+		if (!(string = ft_calloc(ft_strlen(arg), (sizeof(char) + 1))))
+			return (0);
+		ft_memcpy(string, arg, ft_strlen(arg));
+	}
 	if (val->width > 0 || val->precision > 0 || val->emptyprc == 1)
 		output = ft_apply_flags(string, val);
 	else
