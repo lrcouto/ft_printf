@@ -1,4 +1,8 @@
 pft/
 pft_2019/
-pft_2019/
 src/main.c
+src/maindavi.c
+.gitignore
+.vscode
+libftprintf.a
+a.out

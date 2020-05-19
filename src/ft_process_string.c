@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 12:59:04 by lcouto            #+#    #+#             */
-/*   Updated: 2020/05/19 16:04:38 by lcouto           ###   ########.fr       */
+/*   Updated: 2020/05/19 16:12:56 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ t_pf		*ft_process_string(const char *format, t_pf *val, char *arg)
 	j = 0;
 	if (!format)
 		return (0);
-	if (ft_strncmp(arg, "", sizeof(char)) == 0 || arg == NULL)
+	if (ft_strncmp(arg, "", sizeof(char)) == 0 || !arg)
 		return (val);
 	if (!(string = ft_calloc(ft_strlen(arg), (sizeof(char) + 1))))
 		return (0);
