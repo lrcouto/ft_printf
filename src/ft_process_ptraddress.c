@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 13:40:35 by lcouto            #+#    #+#             */
-/*   Updated: 2020/05/20 17:33:49 by lcouto           ###   ########.fr       */
+/*   Updated: 2020/05/20 17:45:33 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,9 @@ t_pf	*ft_process_ptraddress(const char *format, t_pf *val, uintptr_t arg)
 	if (!format)
 		return (0);
 	ft_memcpy(zeroxis, "0x", 2);
-	string = ((!arg) ? ft_strjoin(zeroxis, "") : ft_strjoin(zeroxis, ft_itoa_ptr(arg, 16)));
+	string = ((!arg && val->emptyprc == 1) ? ft_strjoin(zeroxis, "") :
+	ft_strjoin(zeroxis, ft_itoa_ptr(arg, 16)));
+	val->emptyprc = 0;
 	if (val->width > 0 || val->precision > 0)
 	{
 		output = ft_apply_flags(string, val);
