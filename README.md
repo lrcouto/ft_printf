@@ -15,3 +15,5 @@ May 13th 2020 - Char and Percent tests work. Need to fix hexa conversions from i
 May 14th 2020 - Char, String, Int, Percent and Unsigned conversions work with flags AFAIK. Having trouble with testers.
 
 May 19th 2020 - Testing code on PFT_2019 tester (https://github.com/cclaude42/PFT_2019). Passed 622 out of 745 tests. Spent the day fixing problems with NULL parameters being input.
+
+May 20th 2020 - Passing on all of the PFT_2019 tests. Tomorrow I will look for memory leaks and other problems of the sort.
