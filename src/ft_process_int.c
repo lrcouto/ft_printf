@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/03 14:58:20 by lcouto            #+#    #+#             */
-/*   Updated: 2020/05/15 14:26:57 by lcouto           ###   ########.fr       */
+/*   Updated: 2020/05/20 15:02:06 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,23 +55,30 @@ static char	*ft_apply_flags(char *string, t_pf *val)
 	val->newstr = (val->precision > 0 ? ft_apply_precision(string, val)
 	: ft_strdup(string));
 	len = ft_strlen(val->newstr);
-	if (!(val->padding = ft_calloc((val->width - len), sizeof(char))))
-		return (0);
-	if (val->zeroflag == 1 && val->width != len)
+	if (val->width > len)
 	{
-		ft_memset(val->padding, '0', (val->width - len));
-		if (val->newstr[0] == '-')
+		if (!(val->padding = ft_calloc((val->width - len), sizeof(char))))
+			return (0);
+		if (val->zeroflag == 1 && val->width != len)
 		{
-			if (val->width > len)
-				val->newstr[0] = '0';
-			val->padding[0] = '-';
+			ft_memset(val->padding, '0', (val->width - len));
+			if (val->newstr[0] == '-')
+			{
+				if (val->width > len)
+					val->newstr[0] = '0';
+				val->padding[0] = '-';
+			}
+			val->zeroflag = 0;
 		}
-		val->zeroflag = 0;
+		else
+			ft_memset(val->padding, ' ', (val->width - len));
+		ret = (val->dashflag == 1 ? ft_strjoin(val->newstr, val->padding) :
+		ft_strjoin(val->padding, val->newstr));
+		free(val->padding);
 	}
 	else
-		ft_memset(val->padding, ' ', (val->width - len));
-	ret = (val->dashflag == 1 ? ft_strjoin(val->newstr, val->padding) :
-	ft_strjoin(val->padding, val->newstr));
+		ret = ft_strdup(val->newstr);
+	free(val->newstr);
 	val->dashflag = 0;
 	return (ret);
 }
