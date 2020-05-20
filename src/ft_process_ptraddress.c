@@ -6,11 +6,28 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 13:40:35 by lcouto            #+#    #+#             */
-/*   Updated: 2020/05/20 19:14:16 by lcouto           ###   ########.fr       */
+/*   Updated: 2020/05/20 19:58:39 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
+
+static char *ft_zero_exception(char *ret, t_pf *val)
+{
+	int i;
+
+	i = 0;
+	while (ret && ret[i])
+	{
+		if (ret[i] == 'x')
+			break ;
+		i++;
+	}
+	ret[1] = 'x';
+	ret[i] = '0';
+	val->smallptr = 0;
+	return (ret);
+}
 
 static char	*ft_apply_precision(char *string, t_pf *val)
 {
@@ -28,6 +45,7 @@ static char	*ft_apply_precision(char *string, t_pf *val)
 	{
 		ft_memset(val->padding, '0', (val->precision - num));
 		val->newstr = ft_strjoin(val->padding, string);
+		val->smallptr = 1;
 	}
 	val->zeroflag = 0;
 	free(val->padding);
@@ -50,6 +68,7 @@ static char	*ft_apply_flags(char *string, t_pf *val)
 		{
 			ft_memset(val->padding, '0', (val->width - len));
 			val->zeroflag = 0;
+
 		}
 		else
 			ft_memset(val->padding, ' ', (val->width - len));
@@ -58,6 +77,8 @@ static char	*ft_apply_flags(char *string, t_pf *val)
 	}
 	else
 		ret = ft_strdup(val->newstr);
+	if (val->smallptr == 1)
+		ret = ft_zero_exception(ret, val);
 	val->dashflag = 0;
 	return (ret);
 }

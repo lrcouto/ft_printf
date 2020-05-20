@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 17:38:17 by lcouto            #+#    #+#             */
-/*   Updated: 2020/05/14 16:03:19 by lcouto           ###   ########.fr       */
+/*   Updated: 2020/05/20 19:50:54 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ t_pf	*ft_init_val(t_pf *val)
 	val->precision = 0;
 	val->activearg = 0;
 	val->emptyprc = 0;
+	val->smallptr = 0;
 	val->newstr = NULL;
 	val->padding = NULL;
 	return (val);
