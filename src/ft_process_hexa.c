@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 17:27:32 by lcouto            #+#    #+#             */
-/*   Updated: 2020/05/15 18:24:20 by lcouto           ###   ########.fr       */
+/*   Updated: 2020/05/20 17:11:40 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static char	*ft_apply_flags(char *string, t_pf *val)
 	len = ft_strlen(val->newstr);
 	if (val->width > len)
 	{
-		if (!(val->padding = ft_calloc((val->width - len), sizeof(char))))
+		if (!(val->padding = ft_calloc((val->width - len), sizeof(char) + 1)))
 			return (0);
 		if (val->zeroflag == 1 && val->width != len)
 		{
@@ -72,6 +72,13 @@ t_pf	*ft_process_hexa(const char *format, t_pf *val, unsigned int arg)
 		return (0);
 	j = 0;
 	string = ft_itoa_base_u(arg, 16);
+	if (ft_strncmp(string, "0", 3) == 0 && val->precision == 0 && val->emptyprc == 1)
+	{
+		free(string);
+		if (!(string = ft_calloc(1, sizeof(char) + 1)))
+			return(0);
+		val->emptyprc = 0;
+	}
 	if (val->width > 0 || val->precision > 0)
 	{
 		output = ft_apply_flags(string, val);
