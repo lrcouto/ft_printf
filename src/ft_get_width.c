@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 16:17:01 by lcouto            #+#    #+#             */
-/*   Updated: 2020/05/07 17:59:34 by lcouto           ###   ########.fr       */
+/*   Updated: 2020/05/20 18:41:08 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ static void	ft_get_arg(t_pf *val, char *temp, int i)
 	{
 		val->width = val->width * -1;
 		val->dashflag = 1;
+		val->zeroflag = 0;
 	}
 }
 
