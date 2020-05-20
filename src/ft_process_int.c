@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/03 14:58:20 by lcouto            #+#    #+#             */
-/*   Updated: 2020/05/20 15:02:06 by lcouto           ###   ########.fr       */
+/*   Updated: 2020/05/20 15:31:47 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static char	*ft_apply_precision(char *string, t_pf *val)
 	num = (string[0] == '-' ? (len - 1) : len);
 	if (val->precision > val->width)
 		ft_handle_negatives(string, val);
-	val->padding = ft_calloc((val->precision - num), sizeof(char));
+	val->padding = ft_calloc((val->precision - num), sizeof(char) + 1);
 	if (num >= val->precision)
 		val->newstr = ft_strdup(string);
 	else
@@ -57,7 +57,7 @@ static char	*ft_apply_flags(char *string, t_pf *val)
 	len = ft_strlen(val->newstr);
 	if (val->width > len)
 	{
-		if (!(val->padding = ft_calloc((val->width - len), sizeof(char))))
+		if (!(val->padding = ft_calloc((val->width - len), sizeof(char) + 1)))
 			return (0);
 		if (val->zeroflag == 1 && val->width != len)
 		{
