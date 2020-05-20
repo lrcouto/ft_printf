@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 13:40:35 by lcouto            #+#    #+#             */
-/*   Updated: 2020/05/20 19:06:22 by lcouto           ###   ########.fr       */
+/*   Updated: 2020/05/20 19:14:16 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ static char	*ft_apply_precision(char *string, t_pf *val)
 	{
 		ft_memset(val->padding, '0', (val->precision - num));
 		val->newstr = ft_strjoin(val->padding, string);
-		val->newstr[1] = 'x';
 	}
 	val->zeroflag = 0;
 	free(val->padding);
@@ -59,7 +58,6 @@ static char	*ft_apply_flags(char *string, t_pf *val)
 	}
 	else
 		ret = ft_strdup(val->newstr);
-	ret[len - 2] = '0';
 	val->dashflag = 0;
 	return (ret);
 }
