@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 12:59:04 by lcouto            #+#    #+#             */
-/*   Updated: 2020/05/19 20:07:35 by lcouto           ###   ########.fr       */
+/*   Updated: 2020/05/21 17:08:17 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,15 +57,10 @@ static char	*ft_apply_flags(char *string, t_pf *val)
 	return (ret);
 }
 
-t_pf		*ft_process_string(const char *format, t_pf *val, char *arg)
+static char	*ft_get_string(char *arg)
 {
-	char	*output;
-	char	*string;
-	int		j;
+	char *string;
 
-	j = 0;
-	if (!format)
-		return (0);
 	if (!arg)
 	{
 		if (!(string = ft_calloc(ft_strlen("(null)"), (sizeof(char) + 1))))
@@ -84,6 +79,19 @@ t_pf		*ft_process_string(const char *format, t_pf *val, char *arg)
 			return (0);
 		ft_memcpy(string, arg, ft_strlen(arg));
 	}
+	return (string);
+}
+
+t_pf		*ft_process_string(const char *format, t_pf *val, char *arg)
+{
+	char	*output;
+	char	*string;
+	int		j;
+
+	j = 0;
+	if (!format)
+		return (0);
+	string = ft_get_string(arg);
 	if (val->width > 0 || val->precision > 0 || val->emptyprc == 1)
 		output = ft_apply_flags(string, val);
 	else

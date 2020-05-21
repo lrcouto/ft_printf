@@ -6,19 +6,11 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/03 14:58:20 by lcouto            #+#    #+#             */
-/*   Updated: 2020/05/20 17:48:18 by lcouto           ###   ########.fr       */
+/*   Updated: 2020/05/21 17:08:17 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
-
-static void	ft_handle_negatives(char *string, t_pf *val)
-{
-	if (string[0] == '-')
-		val->width = val->precision + 1;
-	else
-		val->width = val->precision;
-}
 
 static char	*ft_apply_precision(char *string, t_pf *val)
 {
@@ -28,7 +20,7 @@ static char	*ft_apply_precision(char *string, t_pf *val)
 	len = ft_strlen(string);
 	num = (string[0] == '-' ? (len - 1) : len);
 	if (val->precision > val->width)
-		ft_handle_negatives(string, val);
+		val->width = (string[0] == '-' ? val->precision + 1 : val->precision);
 	val->padding = ft_calloc((val->precision - num), sizeof(char) + 1);
 	if (num >= val->precision)
 		val->newstr = ft_strdup(string);
@@ -47,6 +39,31 @@ static char	*ft_apply_precision(char *string, t_pf *val)
 	return (val->newstr);
 }
 
+static char	*ft_apply_padding(int len, t_pf *val)
+{
+	char *ret;
+
+	if (!(val->padding = ft_calloc((val->width - len), sizeof(char) + 1)))
+		return (0);
+	if (val->zeroflag == 1 && val->width != len)
+	{
+		ft_memset(val->padding, '0', (val->width - len));
+		if (val->newstr[0] == '-')
+		{
+			if (val->width > len)
+				val->newstr[0] = '0';
+			val->padding[0] = '-';
+		}
+		val->zeroflag = 0;
+	}
+	else
+		ft_memset(val->padding, ' ', (val->width - len));
+	ret = (val->dashflag == 1 ? ft_strjoin(val->newstr, val->padding) :
+	ft_strjoin(val->padding, val->newstr));
+	free(val->padding);
+	return (ret);
+}
+
 static char	*ft_apply_flags(char *string, t_pf *val)
 {
 	char	*ret;
@@ -56,31 +73,35 @@ static char	*ft_apply_flags(char *string, t_pf *val)
 	: ft_strdup(string));
 	len = ft_strlen(val->newstr);
 	if (val->width > len)
-	{
-		if (!(val->padding = ft_calloc((val->width - len), sizeof(char) + 1)))
-			return (0);
-		if (val->zeroflag == 1 && val->width != len)
-		{
-			ft_memset(val->padding, '0', (val->width - len));
-			if (val->newstr[0] == '-')
-			{
-				if (val->width > len)
-					val->newstr[0] = '0';
-				val->padding[0] = '-';
-			}
-			val->zeroflag = 0;
-		}
-		else
-			ft_memset(val->padding, ' ', (val->width - len));
-		ret = (val->dashflag == 1 ? ft_strjoin(val->newstr, val->padding) :
-		ft_strjoin(val->padding, val->newstr));
-		free(val->padding);
-	}
+		ret = ft_apply_padding(len, val);
 	else
 		ret = ft_strdup(val->newstr);
 	free(val->newstr);
 	val->dashflag = 0;
 	return (ret);
+}
+
+static char	*ft_get_output(char *string, t_pf *val)
+{
+	char *output;
+
+	if (ft_strncmp(string, "0", 3) == 0 &&
+	val->precision == 0 && val->emptyprc == 1)
+	{
+		free(string);
+		if (!(string = ft_calloc(1, sizeof(char) + 1)))
+			return (0);
+		val->emptyprc = 0;
+	}
+	if (val->width > 0 || val->precision > 0)
+	{
+		output = ft_apply_flags(string, val);
+		val->width = 0;
+		val->precision = 0;
+	}
+	else
+		output = ft_strdup(string);
+	return (output);
 }
 
 t_pf		*ft_process_int(const char *format, t_pf *val, int arg)
@@ -93,21 +114,7 @@ t_pf		*ft_process_int(const char *format, t_pf *val, int arg)
 	if (!format)
 		return (0);
 	string = ft_itoa((int)arg);
-	if (ft_strncmp(string, "0", 3) == 0 && val->precision == 0 && val->emptyprc == 1)
-	{
-		free(string);
-		if (!(string = ft_calloc(1, sizeof(char) + 1)))
-			return(0);
-		val->emptyprc = 0;
-	}
-	if (val->width > 0 || val->precision > 0)
-	{
-		output = ft_apply_flags(string, val);
-		val->width = 0;
-		val->precision = 0;
-	}
-	else
-		output = ft_strdup(string);
+	output = ft_get_output(string, val);
 	while (output[j])
 	{
 		ft_putchar_fd(output[j], 1);

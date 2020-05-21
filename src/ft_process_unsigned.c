@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 15:34:01 by lcouto            #+#    #+#             */
-/*   Updated: 2020/05/21 15:14:08 by lcouto           ###   ########.fr       */
+/*   Updated: 2020/05/21 17:08:17 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ static char	*ft_apply_flags(char *string, t_pf *val)
 	char	*ret;
 	int		len;
 
-	val->newstr = (val->precision > 0 ? ft_apply_precision(string, val)
-	: ft_strdup(string));
+	val->newstr = (val->precision > 0 ?
+	ft_apply_precision(string, val) : ft_strdup(string));
 	len = ft_strlen(val->newstr);
 	if (val->width > len)
 	{
@@ -59,29 +59,16 @@ static char	*ft_apply_flags(char *string, t_pf *val)
 	}
 	else
 		ret = ft_strdup(val->newstr);
-	val->dashflag = 0;
 	free(val->newstr);
 	return (ret);
 }
 
-t_pf		*ft_process_unsigned(const char *format,
-t_pf *val, unsigned int arg)
+static void	ft_handle_output(char *string, t_pf *val)
 {
-	char			*output;
-	char			*string;
-	int				j;
+	char	*output;
+	int		j;
 
 	j = 0;
-	if (!format)
-		return (0);
-	string = ft_itoa_u(arg);
-	if (ft_strncmp(string, "0", 3) == 0 && val->precision == 0 && val->emptyprc == 1)
-	{
-		free(string);
-		if (!(string = ft_calloc(1, sizeof(char) + 1)))
-			return(0);
-		val->emptyprc = 0;
-	}
 	if (val->width > 0 || val->precision > 0)
 	{
 		output = ft_apply_flags(string, val);
@@ -95,8 +82,28 @@ t_pf *val, unsigned int arg)
 		ft_putchar_fd(output[j], 1);
 		j++;
 	}
-	free(string);
-	free(output);
 	val->total = val->total + j;
+	free(output);
+}
+
+t_pf		*ft_process_unsigned(const char *format,
+t_pf *val, unsigned int arg)
+{
+	char			*string;
+
+	if (!format)
+		return (0);
+	string = ft_itoa_u(arg);
+	if (ft_strncmp(string, "0", 3) == 0 &&
+	val->precision == 0 && val->emptyprc == 1)
+	{
+		free(string);
+		if (!(string = ft_calloc(1, sizeof(char) + 1)))
+			return (0);
+		val->emptyprc = 0;
+	}
+	ft_handle_output(string, val);
+	free(string);
+	val->dashflag = 0;
 	return (val);
 }
