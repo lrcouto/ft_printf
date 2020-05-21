@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 13:40:35 by lcouto            #+#    #+#             */
-/*   Updated: 2020/05/20 19:58:39 by lcouto           ###   ########.fr       */
+/*   Updated: 2020/05/21 15:14:08 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,18 +68,19 @@ static char	*ft_apply_flags(char *string, t_pf *val)
 		{
 			ft_memset(val->padding, '0', (val->width - len));
 			val->zeroflag = 0;
-
 		}
 		else
 			ft_memset(val->padding, ' ', (val->width - len));
 		ret = (val->dashflag == 1 ? ft_strjoin(val->newstr, val->padding) :
 		ft_strjoin(val->padding, val->newstr));
+		free(val->padding);
 	}
 	else
 		ret = ft_strdup(val->newstr);
 	if (val->smallptr == 1)
 		ret = ft_zero_exception(ret, val);
 	val->dashflag = 0;
+	free(val->newstr);
 	return (ret);
 }
 
@@ -113,5 +114,8 @@ t_pf	*ft_process_ptraddress(const char *format, t_pf *val, uintptr_t arg)
 		j++;
 	}
 	val->total = val->total + j;
+	free(output);
+	free(string);
+	free(zeroxis);
 	return (val);
 }

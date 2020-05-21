@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 17:27:32 by lcouto            #+#    #+#             */
-/*   Updated: 2020/05/20 17:48:18 by lcouto           ###   ########.fr       */
+/*   Updated: 2020/05/21 15:14:08 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,5 +95,7 @@ t_pf	*ft_process_hexa(const char *format, t_pf *val, unsigned int arg)
 		j++;
 	}
 	val->total = val->total + j;
+	free(output);
+	free(string);
 	return (val);
 }
