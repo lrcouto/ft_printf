@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 17:27:32 by lcouto            #+#    #+#             */
-/*   Updated: 2020/05/21 15:14:08 by lcouto           ###   ########.fr       */
+/*   Updated: 2020/05/21 15:52:55 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,21 +62,16 @@ static char	*ft_apply_flags(char *string, t_pf *val)
 	return (ret);
 }
 
-t_pf	*ft_process_hexa(const char *format, t_pf *val, unsigned int arg)
+static char	*ft_get_output(char *string, t_pf *val)
 {
-	char	*string;
-	char	*output;
-	int		j;
+	char *output;
 
-	if (!format)
-		return (0);
-	j = 0;
-	string = ft_itoa_base_u(arg, 16);
-	if (ft_strncmp(string, "0", 3) == 0 && val->precision == 0 && val->emptyprc == 1)
+	if (ft_strncmp(string, "0", 3) == 0 &&
+	val->precision == 0 && val->emptyprc == 1)
 	{
 		free(string);
 		if (!(string = ft_calloc(1, sizeof(char) + 1)))
-			return(0);
+			return (0);
 		val->emptyprc = 0;
 	}
 	if (val->width > 0 || val->precision > 0)
@@ -87,6 +82,20 @@ t_pf	*ft_process_hexa(const char *format, t_pf *val, unsigned int arg)
 	}
 	else
 		output = ft_strdup(string);
+	return (output);
+}
+
+t_pf		*ft_process_hexa(const char *format, t_pf *val, unsigned int arg)
+{
+	char	*string;
+	char	*output;
+	int		j;
+
+	if (!format)
+		return (0);
+	j = 0;
+	string = ft_itoa_base_u(arg, 16);
+	output = ft_get_output(string, val);
 	while (output[j])
 	{
 		if (format[val->index] == 'X' && output[j] >= 'a' && output[j] <= 'f')
