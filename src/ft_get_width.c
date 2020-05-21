@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 16:17:01 by lcouto            #+#    #+#             */
-/*   Updated: 2020/05/20 18:44:45 by lcouto           ###   ########.fr       */
+/*   Updated: 2020/05/21 18:43:34 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,10 @@ void		ft_get_width(const char *format, t_pf *val)
 	}
 	while (format[i] >= '0' && format[i] <= '9')
 		i++;
-	temp = ft_substr(format, val->index, i - val->index);
+	if (i > val->index)
+		temp = ft_substr(format, val->index, i - val->index);
+	else
+		temp = NULL;
 	ft_get_arg(val, temp, i);
 	free(temp);
 	ft_id_conversion(format, val);
