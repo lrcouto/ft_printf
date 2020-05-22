@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 12:19:29 by lcouto            #+#    #+#             */
-/*   Updated: 2020/05/22 19:20:53 by lcouto           ###   ########.fr       */
+/*   Updated: 2020/05/22 20:24:58 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ t_pf		*ft_process_char(const char *format, t_pf *val, int arg)
 	j = 0;
 	if (!format)
 		return (0);
-	if (arg <= 0 && val->width > 0)
+	if (arg == 0 && val->width == 1)
 		val->width = val->width + 1;
 	c = (char)arg;
 	if (!(val->padding = ft_calloc(val->width, sizeof(char) + 1)))
