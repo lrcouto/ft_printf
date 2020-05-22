@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/03 14:58:20 by lcouto            #+#    #+#             */
-/*   Updated: 2020/05/21 21:48:12 by lcouto           ###   ########.fr       */
+/*   Updated: 2020/05/21 21:57:24 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,12 +87,15 @@ static char	*ft_get_output(char *string, t_pf *val)
 {
 	char *output;
 
-	if (ft_strncmp(string, "0", 3) == 0)
+	if (ft_strncmp(string, "0", 3) == 0 &&
+	val->precision == 0 && val->emptyprc == 1)
 	{
 		if (!(string = ft_calloc(1, sizeof(char) + 1)))
 			return (0);
+		val->emptyprc = 0;
+		val->zeroflag = 0;
 	}
-	if (val->precision == 0 && val->emptyprc == 1)
+	else if (val->precision == 0 && val->emptyprc == 1)
 	{
 		val->emptyprc = 0;
 		val->zeroflag = 0;
