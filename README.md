@@ -17,3 +17,6 @@ May 14th 2020 - Char, String, Int, Percent and Unsigned conversions work with fl
 May 19th 2020 - Testing code on PFT_2019 tester (https://github.com/cclaude42/PFT_2019). Passed 622 out of 745 tests. Spent the day fixing problems with NULL parameters being input.
 
 May 20th 2020 - Passing on all of the PFT_2019 tests. Tomorrow I will look for memory leaks and other problems of the sort.
+
+May 21st 2020 - Fixed several memory leaks, fixed a few blatant logic errors that definitely shouldn't be there at this stage of the project, and
+fixed some weird behavior that happens when you input zero precision. Testing now on the "Hello Kitty" tester (https://github.com/Mazoise/42TESTERS-PRINTF). 509 out of 514 tests passed. Will continue tomorrow.
