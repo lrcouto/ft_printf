@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 12:19:29 by lcouto            #+#    #+#             */
-/*   Updated: 2020/05/21 22:06:40 by lcouto           ###   ########.fr       */
+/*   Updated: 2020/05/22 15:52:24 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ t_pf		*ft_process_char(const char *format, t_pf *val, int arg)
 	if (!format)
 		return (0);
 	c = (char)arg;
+	if (c == '-' || c == '0')
+		val->dashflag = 1;
 	if (!(val->padding = ft_calloc(val->width, sizeof(char) + 1)))
 		return (0);
 	if (val->width > 0)
