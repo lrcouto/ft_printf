@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 12:19:29 by lcouto            #+#    #+#             */
-/*   Updated: 2020/05/22 17:37:17 by lcouto           ###   ########.fr       */
+/*   Updated: 2020/05/22 18:05:36 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ static int	ft_apply_flags(t_pf *val, char c)
 	{
 		ft_putchar_fd(c, 1);
 		j = ft_putstr(val->padding);
+		val->dashflag = 0;
 	}
 	else
 	{
