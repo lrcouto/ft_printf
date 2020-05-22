@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 16:17:01 by lcouto            #+#    #+#             */
-/*   Updated: 2020/05/22 17:29:06 by lcouto           ###   ########.fr       */
+/*   Updated: 2020/05/22 17:37:41 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ static void	ft_get_arg(t_pf *val, char *temp, int i)
 	{
 		val->width = va_arg(val->args, int);
 		val->widstar = 0;
-		if (val->widstar < 0)
-			val->charexcep = 1;
 	}
 	else
 	{
