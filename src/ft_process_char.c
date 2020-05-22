@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 12:19:29 by lcouto            #+#    #+#             */
-/*   Updated: 2020/05/22 17:29:46 by lcouto           ###   ########.fr       */
+/*   Updated: 2020/05/22 17:35:06 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ t_pf		*ft_process_char(const char *format, t_pf *val, int arg)
 	{
 		j = ft_apply_flags(val, c);
 		val->width = 0;
+		val->charexcep = 0;
 	}
 	else
 		ft_putchar_fd(c, 1);
