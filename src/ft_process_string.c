@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 12:59:04 by lcouto            #+#    #+#             */
-/*   Updated: 2020/05/21 21:28:07 by lcouto           ###   ########.fr       */
+/*   Updated: 2020/05/22 18:25:37 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ static char	*ft_apply_flags(char *string, t_pf *val)
 	{
 		if (!(val->newstr = ft_calloc(1, sizeof(char))))
 			return (0);
+		val->emptyprc = 0;
 	}
 	else
 		val->newstr = ft_strdup(string);
