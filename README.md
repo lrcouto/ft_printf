@@ -20,3 +20,5 @@ May 20th 2020 - Passing on all of the PFT_2019 tests. Tomorrow I will look for m
 
 May 21st 2020 - Fixed several memory leaks, fixed a few blatant logic errors that definitely shouldn't be there at this stage of the project, and
 fixed some weird behavior that happens when you input zero precision. Testing now on the "Hello Kitty" tester (https://github.com/Mazoise/42TESTERS-PRINTF). 509 out of 514 tests passed. Will continue tomorrow.
+
+May 22st 2020 - After spending 5 hours chasing what turned out to be a rogue null character, the code passes on both PFT_2019 and the "Hello Kitty" tester. Now all I have to do is get it through Moulinette.
