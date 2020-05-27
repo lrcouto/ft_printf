@@ -4,7 +4,7 @@ This is a recoding of the printf function, made as an assignment at Escola 42 - 
 
 # Structure:
 
-![This is how it works, roughly.](include/Printf_Processes.png)
+![This is how it works, roughly.](include/Printf_Process.png)
 
 
 
