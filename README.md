@@ -6,7 +6,11 @@ This is a recoding of the printf function, made as an assignment at Escola 42 - 
 
 ft_printf depends on the libft function library to run. If you intend to run it, you have to clone libft as a submodule inside it. You can use my libft, or if you're a 42 student, you can use your own. If you want to do so, just replace the address on the following command with your own libft repository.
 
-On your terminal, run: git clone http://github.com/lrcouto/ft_printf.git && cd ft_printf && git clone http://github.com/lrcouto/libft.git && make
+On your terminal, run:
+
+...
+git clone http://github.com/lrcouto/ft_printf.git && cd ft_printf && git clone http://github.com/lrcouto/libft.git && make
+...
 
 # Structure:
 
