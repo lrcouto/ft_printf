@@ -8,9 +8,9 @@ ft_printf depends on the libft function library to run. If you intend to run it,
 
 On your terminal, run:
 
-...
+```
 git clone http://github.com/lrcouto/ft_printf.git && cd ft_printf && git clone http://github.com/lrcouto/libft.git && make
-...
+```
 
 # Structure:
 
