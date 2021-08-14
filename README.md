@@ -4,12 +4,14 @@ This is a recoding of the printf function, made as an assignment at Escola 42 - 
 
 # How to run it
 
-ft_printf depends on the libft function library to run. If you intend to run it, you have to clone libft as a submodule inside it. You can use my libft, or if you're a 42 student, you can use your own. If you want to do so, just replace the address on the following command with your own libft repository.
+ft_printf depends on the libft function library to run. If you intend to run it, you have to clone libft as a submodule inside it. You can use my libft, or if you're a 42 student, you can use your own. As of August 14th 2021, this project has been provided with a static version of libft to ensure compatibility.
+
+This project is NOT compliant with Norminette 3.
 
 On your terminal, run:
 
 ```
-git clone http://github.com/lrcouto/ft_printf.git && cd ft_printf && git clone http://github.com/lrcouto/libft.git && make
+git clone http://github.com/lrcouto/ft_printf.git && cd ft_printf && make
 ```
 
 # Structure:
